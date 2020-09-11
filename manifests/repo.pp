@@ -8,15 +8,15 @@ class pdagent::repo {
     'Debian': {
       include ::apt
       apt::key { 'pagerduty':
-        key        => '34241874978E85F344483D714037B2209E65C6CB',
-        key_source => 'https://packages.pagerduty.com/GPG-KEY-pagerduty',
+        id     => '34241874978E85F344483D714037B2209E65C6CB',
+        source => 'https://packages.pagerduty.com/GPG-KEY-pagerduty',
       }
       -> apt::source { 'pdagent':
-        location    => 'https://packages.pagerduty.com/pdagent',
-        release     => '',
-        repos       => 'deb/',
-        include_src => false,
-        key         => '34241874978E85F344483D714037B2209E65C6CB',
+        location => 'https://packages.pagerduty.com/pdagent',
+        release  => '',
+        repos    => 'deb/',
+        include  => { src => false },
+        key      => '34241874978E85F344483D714037B2209E65C6CB',
       }
     }
     'RedHat', 'Amazon': {
