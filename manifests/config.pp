@@ -20,6 +20,6 @@ class pdagent::config(
   #   - source_address
   file { $::pdagent::config_filename:
     ensure  => file,
-    content => template('pdagent.conf.erb'),
+    content => template('pdagent/pdagent.conf.erb'),
   }
 }
